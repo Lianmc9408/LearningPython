@@ -59,3 +59,12 @@ print('copy模块的deepcopy', names4)
 # for i in names:  # 打印names的内容
 # 	print(i)
 print(names[::2])  # 切片，带步长
+
+# 列表生成器,只有在调用的时候才生成，names列表是直接生成的
+c = (i * 2 for i in range(10))  # class 'generator'
+print(type(c))
+# a = [c]  # [<generator object <genexpr> at 0x7f9f9f65ca98>]
+a = [i * 2 for i in range(10)]
+print(a)
+b = [i * i for i in range(10) if i % 2 == 0]
+print(b)
