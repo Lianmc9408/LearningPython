@@ -28,17 +28,42 @@ sk.bind(address)
 # 为None时表示无排队服务，bakclog为数字时代表最大等待队列数量
 sk.listen(3)
 
-conn, addr = sk.accept()
-
-print(conn)
 
 # a bytes-like object is required, not 'str'
 # 必须传bype类型的数据
 # inp = input('....>>')
 # conn.send(bytes(inp, 'utf-8'))
 
-data = conn.recv(1024)
-print(data)
+# BUG:直接输入回车会卡死
+
+# 第一种写法：
+# conn, addr = sk.accept()
+# print(conn)
+# while 1:
+# 	data = conn.recv(1024)
+# 	print(',........', str(data, 'utf-8'))
+# 	if not data:
+# 		# 一个客户端退出后等待下一个客户端连进的情况
+# 		conn.close()
+# 		conn, addr = sk.accept()
+# 		print(addr)
+# 		continue
+# 		# 1个客户端的情况
+# 		# break
+# 	inp = input('....>>')
+# 	conn.send(bytes(inp, 'utf-8'))
+
+# 第二种写法：
+while 1:
+	conn, addr = sk.accept()
+	while 1:
+		data = conn.recv(1024)
+		print(',........', str(data, 'utf-8'))
+		if not data:
+			break
+		inp = input('....>>')
+		conn.send(bytes(inp, 'utf-8'))
+
 
 conn.close()  # 关闭连接，关闭后相连的对象断开
 sk.close()  # 关闭通道，关闭后全部对象都无法连接
