@@ -57,10 +57,13 @@ sk.listen(3)
 while 1:
 	conn, addr = sk.accept()
 	while 1:
-		data = conn.recv(1024)
-		print(',........', str(data, 'utf-8'))
+		try:
+			data = conn.recv(1024)   # 等待接收的过程中如果client关闭，会报ConnectionResetError
+		except ConnectionResetError:
+			break
 		if not data:
 			break
+		print(',........', str(data, 'utf-8'))
 		inp = input('....>>')
 		conn.send(bytes(inp, 'utf-8'))
 
