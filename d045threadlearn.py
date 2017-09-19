@@ -2,6 +2,8 @@
 # -*- coding:utf-8 -*-
 # author : Lmc  Date: 17-9-18 下午6:35'
 
+# 参考：http://www.cnblogs.com/yuanchenqi/articles/5733873.html
+
 import time
 import threading
 
@@ -43,3 +45,5 @@ print('.....in the main.......')
 # 计算密集型任务串行比并行要快，因为线程间的不断切换会浪费大量时间
 # 因为Python是全局解释性语言，只能使用到单颗CPU
 # 可以使用多进程代替多线程
+
+# t1.setDaemon(True)  # 守护线程，主线程结束后子线程程序直接结束
