@@ -10,9 +10,10 @@ m.update(b'Hello')
 print(m.hexdigest())  # 8b1a9953c4611296a827abf8c47804d7
 m.update(b"It's me")
 print(m.hexdigest())  # 5ddeb47b2f925ad0bf249c52e342728a，为HelloIt's me的MD5
+
 m1 = hashlib.md5()
 m1.update(b"HelloIt's me")
-print(m.hexdigest())  # 5ddeb47b2f925ad0bf249c52e342728a，为HelloIt's me的MD5
+print(m1.hexdigest())  # 5ddeb47b2f925ad0bf249c52e342728a，为HelloIt's me的MD5
 
 # ######## md5 ########
 hash = hashlib.md5()
