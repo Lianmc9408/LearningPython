@@ -3,6 +3,7 @@
 # author : Lmc  Date: 17-9-18 下午6:35'
 
 # 参考：http://www.cnblogs.com/yuanchenqi/articles/5733873.html
+# http://www.cnblogs.com/alex3714/articles/5230609.html
 
 import time
 import threading
