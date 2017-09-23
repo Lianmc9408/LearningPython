@@ -13,22 +13,22 @@ sel = selectors.DefaultSelector()
 
 
 def accept(sock, mask):
-	conn, addr = sock.accept()  # Should be ready
-	print('accepted', conn, 'from', addr)
-	conn.setblocking(False)
-	# conn活动，调用read()方法读取数据
-	sel.register(conn, selectors.EVENT_READ, read)
+    conn, addr = sock.accept()  # Should be ready
+    print('accepted', conn, 'from', addr)
+    conn.setblocking(False)
+    # conn活动，调用read()方法读取数据
+    sel.register(conn, selectors.EVENT_READ, read)
 
 
 def read(conn, mask):
-	data = conn.recv(1000)  # Should be ready
-	if data:
-		print('echoing', repr(data), 'to', conn)
-		conn.send(data)  # Hope it won't block
-	else:
-		print('closing', conn)
-		sel.unregister(conn)
-		conn.close()
+    data = conn.recv(1000)  # Should be ready
+    if data:
+        print('echoing', repr(data), 'to', conn)
+        conn.send(data)  # Hope it won't block
+    else:
+        print('closing', conn)
+        sel.unregister(conn)
+        conn.close()
 
 
 sock = socket.socket()
@@ -39,8 +39,8 @@ sock.setblocking(False)
 sel.register(sock, selectors.EVENT_READ, accept)
 
 while True:
-	# 系统支持什么就调用什么，不一定是select，默认阻塞，有活动链接就返回活动的链接列表
-	events = sel.select()
-	for key, mask in events:
-		callback = key.data  # accept()方法
-		callback(key.fileobj, mask)  # key.fileobj,就是socket链接conn
+    # 系统支持什么就调用什么，不一定是select，默认阻塞，有活动链接就返回活动的链接列表
+    events = sel.select()
+    for key, mask in events:
+        callback = key.data  # accept()方法
+        callback(key.fileobj, mask)  # key.fileobj,就是socket链接conn。
