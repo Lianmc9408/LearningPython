@@ -1,2 +1,6 @@
  sudo apt-get install python3-pip
  sudo pip3 install --index-url https://pypi.douban.com/simple --upgrade pip
+
+Readi安装和使用
+http://www.cnblogs.com/wupeiqi/articles/5132791.html
+

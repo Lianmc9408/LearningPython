@@ -1,0 +1,38 @@
+http://www.cnblogs.com/wupeiqi/articles/5132791.html
+https://github.com/andymccurdy/redis-py/
+http://doc.redisfans.com/
+
+其他常用操作
+
+delete(*names)
+    根据删除redis中的任意数据类型
+
+exists(name)
+    检测redis的name是否存在
+
+keys(pattern='*')
+    根据模型获取redis的name,可以正则表达式
+    更多：
+      KEYS * 匹配数据库中所有 key 。
+      KEYS h?llo 匹配 hello ， hallo 和 hxllo 等。
+      KEYS h*llo 匹配 hllo 和 heeeeello 等。
+      KEYS h[ae]llo 匹配 hello 和 hallo ，但不匹配 hillo
+
+expire(name ,time)
+    为某个redis的某个name设置超时时间
+
+rename(src, dst)
+    对redis的name重命名为
+
+move(name, db)
+    将redis的某个值移动到指定的db下
+
+randomkey()
+    随机获取一个redis的name（不删除）
+
+type(name)
+    获取name对应值的类型
+
+scan(cursor=0, match=None, count=None)
+scan_iter(match=None, count=None)
+    同字符串操作，用于增量迭代获取key

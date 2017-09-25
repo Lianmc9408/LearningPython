@@ -1,0 +1,125 @@
+String操作，redis中的String在在内存中按照一个name对应一个value来存储。
+    n1   --->    v1
+    n2   --->    v2
+    n3   --->    v3
+
+set(name, value, ex=None, px=None, nx=False, xx=False)
+    在Redis中设置值，默认，不存在则创建，存在则修改
+    参数：
+         ex，过期时间（秒）
+         px，过期时间（毫秒）
+         nx，如果设置为True，则只有name不存在时，当前set操作才执行
+         xx，如果设置为True，则只有name存在时，岗前set操作才执行
+
+setnx(name, value)
+    设置值，只有name不存在时，执行设置操作（添加）
+
+setex(name, value, time)
+    time，过期时间（数字秒 或 timedelta对象）
+
+psetex(name, time_ms, value)
+    相当于setex的time单位为毫秒
+    time_ms，过期时间（数字毫秒 或 timedelta对象）
+
+mset(*args, **kwargs)
+    批量设置值，如：
+        mset(k1='v1', k2='v2')
+        或
+        mget({'k1': 'v1', 'k2': 'v2'})
+
+get(name)
+    获取值
+
+mget(keys, *args)
+    批量获取，如：
+        mget('ylr', 'wupeiqi')
+        或
+        r.mget(['ylr', 'wupeiqi'])
+
+getset(name, value)
+    设置新值并获取原来的值
+
+getrange(key, start, end)
+    获取子序列（根据字节获取，非字符）
+    参数：
+         name，Redis 的 name
+         start，起始位置（字节）
+         end，结束位置（字节）
+         如： "武沛齐" ，0-3表示 "武"
+
+setrange(name, offset, value)
+    修改字符串内容，从指定字符串索引开始向后替换（新值太长时，则向后添加）
+    参数：
+        offset，字符串的索引，字节（一个汉字三个字节）
+        value，要设置的值
+
+setbit(name, offset, value)
+    # 对name对应值的二进制表示的位进行操作
+    # 参数：
+        # name，redis的name
+        # offset，位的索引（将值变换成二进制后再进行索引）
+        # value，值只能是 1 或 0
+    # 注：如果在Redis中有一个对应： n1 = "foo"，
+            那么字符串foo的二进制表示为：01100110 01101111 01101111
+        所以，如果执行 setbit('n1', 7, 1)，则就会将第7位设置为1，
+            那么最终二进制则变成 01100111 01101111 01101111，即："goo"
+    # 扩展，转换二进制表示：
+        # source = "武沛齐"
+        source = "foo"
+        for i in source:
+            num = ord(i)
+            print bin(num).replace('b','')
+        特别的，如果source是汉字 "武沛齐"怎么办？
+        答：对于utf-8，每一个汉字占 3 个字节，那么 "武沛齐" 则有 9个字节
+           对于汉字，for循环时候会按照 字节 迭代，那么在迭代时，将每一个字节转换 十进制数，然后再将十进制数转换成二进制
+            11100110 10101101 10100110 11100110 10110010 10011011 11101001 10111101 10010000
+            -------------------------- ----------------------------- -----------------------------
+                        武                         沛                           齐
+
+getbit(name, offset)
+    获取name对应的值的二进制表示中的某位的值 （0或1）
+
+bitcount(key, start=None, end=None)
+    获取name对应的值的二进制表示中 1 的个数
+    参数：
+        key，Redis的name
+        start，位起始位置
+        end，位结束位置
+
+bitop(operation, dest, *keys)
+    获取多个值，并将值做位运算，将最后的结果保存至新的name对应的值
+    参数：
+        operation,AND（并） 、 OR（或） 、 NOT（非） 、 XOR（异或）
+        dest, 新的Redis的name
+        *keys,要查找的Redis的name
+    如：
+        bitop("AND", 'new_name', 'n1', 'n2', 'n3')
+        # 获取Redis中n1,n2,n3对应的值，然后讲所有的值做位运算（求并集），然后将结果保存 new_name 对应的值中
+
+strlen(name)
+    返回name对应值的字节长度（一个汉字3个字节）
+
+incr(self, name, amount=1)
+    自增 name对应的值，当name不存在时，则创建name＝amount，否则，则自增。
+    参数：
+    name,Redis的name
+    amount,自增数（必须是整数）
+
+注：同incrby
+incrbyfloat(self, name, amount=1.0)
+    自增 name对应的值，当name不存在时，则创建name＝amount，否则，则自增。
+    参数：
+        name,Redis的name
+        amount,自增数（浮点型）
+
+decr(self, name, amount=1)
+    自减 name对应的值，当name不存在时，则创建name＝amount，否则，则自减。
+    参数：
+        name,Redis的name
+        amount,自减数（整数）
+
+append(key, value)
+    在redis name对应的值后面追加内容
+    参数：
+        key, redis的name
+        value, 要追加的字符串
