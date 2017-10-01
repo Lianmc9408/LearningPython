@@ -1,6 +1,12 @@
- sudo apt-get install python3-pip
- sudo pip3 install --index-url https://pypi.douban.com/simple --upgrade pip
+sudo apt-get install python3-pip
+sudo pip3 install --index-url https://pypi.douban.com/simple --upgrade pip
 
 Readi安装和使用
 http://www.cnblogs.com/wupeiqi/articles/5132791.html
 
+pip3 install pymysql -i https://pypi.douban.com/simple
+
+http://pypi.douban.com/simple  豆瓣
+http://pypi.hustunique.com/simple  华中理工大学
+http://pypi.sdutlinux.org/simple  山东理工大学
+http://pypi.mirrors.ustc.edu.cn/simple  中国科学技术大学
