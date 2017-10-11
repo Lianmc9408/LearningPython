@@ -359,3 +359,13 @@ mysqldump -u用户名 -p密码 -d 数据库名称 >导出文件路径       # �
 如：mysqldump -ulian -p456789 school > ....../school.mql
 导入现有数据库数据：
 mysqldump -uroot -p密码  数据库名称 < 文件路径
+
+创建视图
+CREATE VIEW 视图名称 AS  SQL语句  --Sql 语句一般都是select语句
+删除视图
+DROP VIEW 视图名称
+修改视图
+ALTER VIEW 视图名称 AS SQL语句  -- 把原视图换成其他视图
+使用视图    --使用视图时，将其当作表进行操作即可，
+            --由于视图是虚拟表，所以无法使用其对真实表进行创建、更新和删除操作，仅能做查询用
+select * from v1
