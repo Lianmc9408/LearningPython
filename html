@@ -1,6 +1,12 @@
-http://www.cnblogs.com/yuanchenqi/articles/5976755.html
+﻿http://www.cnblogs.com/yuanchenqi/articles/5976755.html
 http://www.cnblogs.com/yuanchenqi/articles/6000358.html  协议
 http://www.cnblogs.com/yuanchenqi/articles/5977825.html  CSS
+http://www.cnblogs.com/yuanchenqi/articles/5980312.html  js
+http://www.cnblogs.com/yuanchenqi/articles/6893904.html  js
+http://www.cnblogs.com/yuanchenqi/articles/5663118.html  jq
+http://www.cnblogs.com/wupeiqi/tag/python之路/
+http://www.cnblogs.com/alex3714/category/770733.html  文章目录
+http://www.cnblogs.com/alex3714/articles/5161349.html  常用模块
 非meta标签
     <title>oldboy</title>
     <link rel="icon" href="http://www.jd.com/favicon.ico">  设置icon图片
@@ -12,3 +18,51 @@ http://www.cnblogs.com/yuanchenqi/articles/5977825.html  CSS
       &gt;      代表>
             当需要文本表示<h1>时，可以写&lt;h1&gt;
       &quot;&copy;&reg;
+
+//在添加了float的div下清除浮动时可以直接加下面这个类，不需要再添加一个块clear：both；
+.clearfix:after{
+            content: '.';
+            display: block;
+            clear: both;
+            visibility: hidden;
+            height: 0;
+        }
+
+
+//children --只找儿子辈
+//find  -- 后代都找
+//next  -- 此标签的下一个标签
+//nextall -- 此标签下的下面所有同级标签
+//nextUntil -- 此标签到某个标签之间的所有元素，不包含参数标签
+//prev -- 此标签的上一个标签，prevAll,prevUntil同理
+$("div").children(".test")
+$("div").find(".test")
+$(".test").next()
+$(".test").nextAll()
+$(".test").nextUntil()
+$("div").prev()
+$("div").prevAll()
+$("div").prevUntil()
+
+//parent -- 标签的上一级标签（爸爸）
+//parents -- 标签的上一级所有标签，直至body，所以会导致改变整个文档
+//parentUntil -- 标签的上一级标签至参数级标签，不包含参数级标签（叔叔不会变）
+$(".test").parent()
+$(".test").parents()
+$(".test").parentUntil()
+
+//用于选取每个匹配元素的所有同辈元素(不包括自己)，并以jQuery对象的形式返回。
+$("div").siblings()
+
+window.onload = function(){
+    ...
+}
+等价于jQuery的
+$(document).ready(function(){
+    ...
+})
+简写方式：
+$(function(){
+    ...
+})
+都是用于页面加载完成时执行的函数

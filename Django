@@ -1,0 +1,16 @@
+http://www.cnblogs.com/yuanchenqi/articles/6083427.html
+
+
+MTV
+ Model(模型)：负责业务对象与数据库的对象(ORM)   --数据及数据库对象
+
+       Template(模版)：负责如何把页面展示给用户  --  html文件
+
+       View(视图)：负责业务逻辑，并在适当的时候调用Model和Template
+                    --相当于mvc的controller，处理逻辑
+
+settings下的TEMPLATES中，查看DIRS路径是否指向templates
+'DIRS': [os.path.join(BASE_DIR, 'templates')],
+
+如果使用命令行添加django项目，
+需要pycharm--setting--Languages&Framework--Django中设置，之后会出现Django项目的相关提示
