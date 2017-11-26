@@ -1,6 +1,5 @@
 http://www.cnblogs.com/wupeiqi/articles/5713315.html
 http://www.cnblogs.com/wupeiqi/articles/5713323.html
-http://www.cnblogs.com/wupeiqi/articles/5729934.html
 http://www.cnblogs.com/wupeiqi/articles/5716963.html
 http://www.cnblogs.com/wupeiqi/articles/5729934.html  习题
 http://www.cnblogs.com/wupeiqi/articles/5748496.html  答案
@@ -31,6 +30,10 @@ http://blog.csdn.net/qustdjx/article/details/26813443
     insert into 表名(nid,name,pwd) values(1,'alex','123');  # 插入数据
     -- select * from 表名;
     desc 表名                    # 显示表有哪些列
+
+查看mysql占用的端口号
+select version();
+show global variables like 'port';
 
 用户管理：
     创建用户

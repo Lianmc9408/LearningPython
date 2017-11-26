@@ -7,7 +7,7 @@
 # 给当前程序打补丁，能检测到当前程序所有的IO操作，如urllib的urlopen()操作
 from gevent import monkey
 
-monkey.patch_all()
+monkey.patch_all()  # 把当前所有的IO操作做上标记
 
 import gevent
 from urllib.request import urlopen

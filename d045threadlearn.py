@@ -12,11 +12,13 @@ import threading
 def foo(n):
 	print('foo%s' % n)
 	time.sleep(1)
+	print('end foo')
 
 
 def bar(n, a):
 	print('bar%s,%s' % (n, a))
 	time.sleep(2)
+	print('end bar')
 
 
 # 创建子线程对象，target参数为方法名，args为方法需要的参数组成的元祖

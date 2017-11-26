@@ -10,3 +10,21 @@ http://pypi.douban.com/simple  豆瓣
 http://pypi.hustunique.com/simple  华中理工大学
 http://pypi.sdutlinux.org/simple  山东理工大学
 http://pypi.mirrors.ustc.edu.cn/simple  中国科学技术大学
+
+
+
+爬虫：
+http://blog.csdn.net/bone_ace/article/details/53107018  基于Redis的Bloomfilter去重（附Python代码）
+http://junyiseo.com/spider/444.html
+
+
+破解码
+http://idea.lanyus.com/
+
+celery
+http://www.cnblogs.com/alex3714/articles/6351797.html
+
+settings
+# for celery to Django Settings
+CELERY_BROKER_URL = 'redis://localhost'
+CELERY_RESULT_BACKEND = 'redis://localhost'

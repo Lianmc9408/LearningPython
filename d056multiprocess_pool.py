@@ -28,7 +28,7 @@ if __name__ == '__main__':
 	pool = Pool(5)
 	for i in range(10):
 		# 并行
-		pool.apply_async(func=Foo, args=(i,), callback=Bar)
+		pool.apply_async(func=Foo, args=(i,), callback=Bar)  # 回调函数在主进程执行
 		# 串行
 		# pool.apply(func=Foo, args=(i,))
 	print('end')

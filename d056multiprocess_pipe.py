@@ -5,6 +5,7 @@
 
 from multiprocessing import Process, Pipe
 
+# 进程间一个send对应一个recv（send两次就要recv两次），多的recv会造成阻塞
 
 def f(conn):
 	conn.send([42, None, 'hello'])

@@ -73,7 +73,7 @@ hincrbyfloat(name, key, amount=1.0)
         amount，自增数（浮点数）
 
 hscan(name, cursor=0, match=None, count=None)
-    增量式迭代获取，对于数据大的数据非常有用，hscan可以实现分片的获取数据，并非一次性将数据全部获取完，从而放置内存被撑爆
+    增量式迭代获取，对于数据大的数据非常有用，hscan可以实现分片的获取数据，并非一次性将数据全部获取完，从而防止内存被撑爆
     参数：
         name，redis的name
         cursor，游标（基于游标分批取获取数据）

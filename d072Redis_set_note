@@ -13,10 +13,10 @@ sdiffstore(dest, keys, *args)
     获取第一个name对应的集合中且不在其他name对应的集合，再将其新加入到dest对应的集合中
 
 sinter(keys, *args)
-    获取多一个name对应集合的并集
+    获取多一个name对应集合的交集
 
 sinterstore(dest, keys, *args)
-    获取多一个name对应集合的并集，再讲其加入到dest对应的集合中
+    获取多一个name对应集合的交集，再讲其加入到dest对应的集合中
 
 sismember(name, value)
      检查value是否是name对应的集合的成员
@@ -80,7 +80,7 @@ r.zrange( name, start, end, desc=False, withscores=False, score_cast_func=float)
         zrevrangebyscore(name, max, min, start=None, num=None, withscores=False, score_cast_func=float)
 
 zrank(name, value)
-    获取某个值在 name对应的有序集合中的排行（从 0 开始）
+    获取某个值在 name对应的有序集合中的排名（从 0 开始）
     更多：
         zrevrank(name, value)，从大到小排序
 
@@ -107,7 +107,7 @@ zrem(name, values)
     如：zrem('zz', ['s1', 's2'])
 
 zremrangebyrank(name, min, max)
-    根据排行范围删除
+    根据排名范围删除
 
 zremrangebyscore(name, min, max)
     根据分数范围删除

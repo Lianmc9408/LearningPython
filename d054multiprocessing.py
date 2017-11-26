@@ -22,3 +22,7 @@ if __name__ == '__main__':
 	for i in p_list:
 		i.join()
 	print('end')
+
+# import os
+# os.getpid()  # 进程id
+# os.getppid()  # 父进程id

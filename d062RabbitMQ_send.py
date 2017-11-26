@@ -19,7 +19,7 @@ channel.basic_publish(exchange='',
 #                       body='Hello World!',  # body,要发的内容
 
 #                       properties=pika.BasicProperties(
-#                           delivery_mode=2,  # 让消息持久化
+#                           delivery_mode=2,  # 让消息持久化，rabbitMQ挂掉重启后队列和队列内的消息都还在
 #                       )
 
 #                       )

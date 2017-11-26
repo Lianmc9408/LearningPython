@@ -23,7 +23,7 @@ linsert(name, where, refvalue, value))
     参数：
         name，redis的name
         where，BEFORE或AFTER
-        refvalue，标杆值，即：在它前后插入数据
+        refvalue，标杆值，即：在它前后插入数据，是值不是下标
         value，要插入的数据
 
 r.lset(name, index, value)
