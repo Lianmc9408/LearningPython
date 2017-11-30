@@ -1,0 +1,13 @@
+scrapy startproject xxxx  创建工程
+cd xxxx
+scrapy genspider spider_name xxx.com 创建要爬取网页的爬虫,不同爬虫要求name不同
+scrapy crawl spider_name 运行爬虫
+scrapy list 查看有哪些爬虫
+scrapy --help 查看帮助信息
+scrapy version [-v] 查看版本信息
+scrapy view xxx.com  查看页面源码在浏览器中显示的样子
+scrapy parse xx.com  在工程中使用固定的parse函数解析某个页面
+scrapy shell  进入交互shell
+scrapy runspider xxx.py 单独运行某爬虫
+scrapy bench 可用来检测scrapy是否安装成功
+

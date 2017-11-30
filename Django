@@ -171,3 +171,13 @@ cookie中提取随机字符串  csrftoken对象的值
     headers:{'X-CSRFToken':$.cookie('csrftoken')}
     from django.conf import settings
     settings.CSRF_HEADER_NAME
+
+
+{{ form.as_table }}  直接传回form表单时的情况
+
+form = ContactForm(
+**initial={'subject': 'I love your site!'}**
+)
+**内的表示表单不传入值时初始化的情况**
+
+?P<name>pattern   url参数化，参数化后传入的是字符串类型
