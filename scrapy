@@ -11,3 +11,4 @@ scrapy shell  进入交互shell
 scrapy runspider xxx.py 单独运行某爬虫
 scrapy bench 可用来检测scrapy是否安装成功
 
+pip3 install requests selenium beautifulsoup4 pyquery pymysql pymongo redis flask django jupter

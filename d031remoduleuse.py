@@ -9,7 +9,7 @@ import re
 # '$'   匹配字符结尾，或e.search("foo$", "bfoo\nsdfsf", flags=re.MULTILINE).group()也可以
 # '*'   匹配 * 号前的字符0次或多次，re.findall("ab*", "cabb3abcbbac")结果为['abb', 'ab', 'a']
 # '+'   匹配前一个字符1次或多次，re.findall("ab+", "ab+cd+abb+bba")结果['ab', 'abb']
-# '?'   匹配前一个字符1次或0次
+# '?'   匹配前一个字符1次或0次(匹配尽可能少)
 # '{m}' 匹配前一个字符m次
 # '{n,m}'匹配前一个字符n到m次，re.findall("ab{1,3}", "abb abc abbcbbb")结果'abb', 'ab', 'abb']
 # '|'   匹配 | 左或 | 右的字符，re.search("abc|ABC", "ABCBabcCD").group()结果'ABC'
@@ -51,6 +51,9 @@ import re
 # print(re.search('[a-z]+d$', 'aasdad\nwqeqwe\nsdfsdf\nsdfsd\n', flags=re.M))  # 最后一个\n不影响$符号匹配
 
 # res = re.match(r'^qwe', 'qweasdzxc123ertdfgcvb')
+# re.group() 所匹配的字符串
+# re.group(1) 所匹配的字符串中()内的值
+# re.span()所匹配的字符所在索引范围
 # print(res)
 # print(res.group())
 #
