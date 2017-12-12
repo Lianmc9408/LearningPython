@@ -2,6 +2,13 @@ scrapy startproject xxxx  创建工程
 cd xxxx
 scrapy genspider spider_name xxx.com 创建要爬取网页的爬虫,不同爬虫要求name不同
 scrapy crawl spider_name 运行爬虫
+scrapy crawl spider_name -o filename.json运行爬虫并保存为json格式的文件
+scrapy crawl spider_name -o filename.jl运行爬虫并保存为jl格式的文件（比json文件少最外层的大括号）
+scrapy crawl spider_name -o filename.csv运行爬虫并保存为csv格式的文件
+scrapy crawl spider_name -o filename.xml运行爬虫并保存为xml格式的文件
+scrapy crawl spider_name -o filename.pickle运行爬虫并保存为pickle格式的文件
+scrapy crawl spider_name -o filename.marshal运行爬虫并保存为marshal格式的文件(用于做数据分析)
+scrapy crawl spider_name -o ftp://user:password@ftp.example.com/path/filename.csv运行爬虫并远程保存
 scrapy list 查看有哪些爬虫
 scrapy --help 查看帮助信息
 scrapy version [-v] 查看版本信息
@@ -10,5 +17,21 @@ scrapy parse xx.com  在工程中使用固定的parse函数解析某个页面
 scrapy shell  进入交互shell
 scrapy runspider xxx.py 单独运行某爬虫
 scrapy bench 可用来检测scrapy是否安装成功
+scrapy check 检查项目有没有错误
 
+# 安装需要的一些模块（非必须）
 pip3 install requests selenium beautifulsoup4 pyquery pymysql pymongo redis flask django jupter
+
+
+# scrapy
+sudo apt-get install build-essential python3-dev libssl-dev libffi-dev libxml2 libxml2-dev libxslt1-dev zlib1g-dev
+pip3 install scrapy
+
+# quotes.toscrape.com
+
+
+# 参考博客
+http://blog.csdn.net/Inke88/article/details/60766985
+
+# 中文文档
+http://docs.pythontab.com

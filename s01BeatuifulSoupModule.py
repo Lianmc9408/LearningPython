@@ -1,4 +1,4 @@
-from bs4 import BeautifulSoup4
+from bs4 import BeautifulSoup
 html = '''.....'''
 soup = BeautifulSoup(html,'lxml')
 print(soup.prettify)  # 把html调整为标准的html
