@@ -17,6 +17,9 @@ https://www.cnblogs.com/kongzhagen/p/6640975.html   Django内置分页
 http://www.cnblogs.com/wupeiqi/articles/6283017.html  requests、BeautifulSoup
 http://www.cnblogs.com/wupeiqi/articles/6229292.html  线程进程等，asyio,aiohttp
 
+http://blog.csdn.net/fgf00/article/details/54917396   ModelForm操作
+
+
 MTV
 Model(模型)：负责业务对象与数据库的对象(ORM)   --数据及数据库对象
 
