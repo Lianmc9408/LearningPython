@@ -1,0 +1,16 @@
+虚拟环境
+安装：
+    pip3 install virtualenv
+
+使用：
+第一步，创建目录：
+    mkdir Virtualenv
+    cd Virtualenv
+第二步，
+    virtualenv --no-site-packages flask-env  创建环境盒子flask-env
+            --no-site-packages 表示不包括系统全局的Python安装包，这样会更令环境更干净
+    cd flask-env
+    source flask-env/bin/activate  激活虚拟环境（shell路径前会添加虚拟环境名字）
+    deactivate 退出虚拟环境
+
+
