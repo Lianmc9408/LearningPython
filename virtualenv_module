@@ -14,3 +14,24 @@
     deactivate 退出虚拟环境
 
 
+虚拟环境管理工具virtualenvwrapper
+pip3 install virtualenvwrapper
+
+1.创建虚拟环境
+    mkvirtualenv [--python=/u]my_env
+
+2.切换到某个虚拟环境
+    workon my_env
+
+3.退出当前虚拟环境
+    deactivate
+
+4.删除某个虚拟环境
+    rmvirtualenv my_env
+
+5.列出所有虚拟环境
+    lsvirtualenv
+
+6.进入虚拟环境所有目录
+    cdvirtualenv
+
