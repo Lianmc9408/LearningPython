@@ -20,7 +20,7 @@ connection = pika.BlockingConnection(pika.ConnectionParameters(
 channel = connection.channel()
 
 channel.exchange_declare(exchange='logs',
-                         type='fanout')
+                         exchange_type='fanout')
 
 # 不指定queue名字,rabbit会随机分配一个名字,exclusive=True会在使用此queue的消费者断开后,自动将queue删除
 result = channel.queue_declare(exclusive=True)
