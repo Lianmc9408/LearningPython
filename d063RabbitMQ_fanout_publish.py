@@ -17,7 +17,7 @@ connection = pika.BlockingConnection(pika.ConnectionParameters(
 channel = connection.channel()
 # 注意：这里是广播，不需要声明queue
 channel.exchange_declare(exchange='logs',  # 声明广播管道
-                         type='fanout')
+                         exchange_type='fanout')
 
 # message = ' '.join(sys.argv[1:]) or "info: Hello World!"
 message = "info: Hello World!"
